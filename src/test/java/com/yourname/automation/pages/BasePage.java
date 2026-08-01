@@ -1,4 +1,5 @@
 package com.yourname.automation.pages;
+import org.openqa.selenium.JavascriptExecutor;
 
 import com.yourname.automation.utils.DriverFactory;
 import org.openqa.selenium.*;
@@ -19,8 +20,12 @@ public class BasePage {
     }
 
     protected void click(WebElement el) {
-        wait.until(ExpectedConditions
-            .elementToBeClickable(el)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(el));
+        try {
+            el.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
+        }
     }
     
     protected void type(WebElement el, String text) {
