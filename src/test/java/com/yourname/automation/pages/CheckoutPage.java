@@ -42,7 +42,7 @@ public class CheckoutPage extends BasePage {
         // wait for continue and click
         wait.until(ExpectedConditions
             .elementToBeClickable(continueButton));
-        continueButton.click();
+        click(continueButton);
 
         // wait for order summary page to load
         wait.until(ExpectedConditions
@@ -55,7 +55,7 @@ public class CheckoutPage extends BasePage {
             .urlContains("checkout-step-two"));
         wait.until(ExpectedConditions
             .elementToBeClickable(finishButton));
-        finishButton.click();
+        click(finishButton);
 
         // wait for confirmation page
         wait.until(ExpectedConditions
