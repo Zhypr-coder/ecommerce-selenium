@@ -21,11 +21,7 @@ public class BasePage {
 
     protected void click(WebElement el) {
         wait.until(ExpectedConditions.elementToBeClickable(el));
-        try {
-            el.click();
-        } catch (Exception e) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
-        }
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", el);
     }
     
     protected void type(WebElement el, String text) {
